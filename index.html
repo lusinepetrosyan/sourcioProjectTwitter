@@ -1,0 +1,111 @@
+<!doctype HTML>
+<head>
+	<style>
+	body{
+		background: #EB65A0;
+	}
+	.contentDivAll{
+		top:10px;
+		width: 360px;		
+		//background: red;
+		position: absolute;
+	}
+	.childElementStyle{
+		margin-top:10px;
+		height: 500px;
+		width: 360px;		
+		background: #9B539C;
+		position: relative;
+		border-radius: 5px;
+	}	
+	.childElementStyle1{
+		margin-top:10px;
+		width: 360px;	
+		height: 300px;	
+		background: #9B539C;
+		position: relative;
+		border-radius: 5px;
+	}
+	.childElementStyle2{
+		margin-top:10px;
+		width: 360px;
+		height: 300px;
+		background: #9B539C;
+		position: relative;
+		border-radius: 5px;
+	}		
+	.test{
+
+		width: 300px;		
+		background: red;
+	}
+	</style>
+
+	</head>
+	<body>	
+	
+
+
+		<script>		
+		var win =document.documentElement.clientWidth;
+		var rangeRight = win-500, rangeLeft  = 140, rangeTop = win/2-180;		
+
+		  var element = document.createElement('div');
+		  element.style.left= rangeLeft+"px";
+	      element.className = "contentDivAll";
+	      document.body.appendChild(element);	
+	      var clientHeight =element.clientWidth;	//==offsetWidth
+
+	      var element1 = document.createElement('div');	
+	      element1.style.left= rangeTop+"px";     
+	      element1.className = "contentDivAll";
+	      document.body.appendChild(element1);	
+	      var clientHeight1 =element1.clientWidth;	//==offsetWidth
+
+
+		  var element2 = document.createElement('div');
+		  element2.style.left= rangeRight+"px";
+	      element2.className = "contentDivAll";
+	      document.body.appendChild(element2);  
+		  var clientHeight2 =element2.clientHeight;	//==offsetWidth
+
+		 
+		   
+	     
+		  	
+		  		
+		  
+			 for(var i=0; i<2; i++) {
+			 var min;
+			  min=clientHeight;
+			  if(clientHeight1<min)
+			  	min=clientHeight1;
+			  if(clientHeight2<min)
+			  	min=clientHeight2;
+			  //alert(min)
+			  if(min== clientHeight){
+			  	  var child3 = document.createElement('div');
+			      element.appendChild(child3);
+			      child3.className="childElementStyle2";	   
+				  var clientHeight =element.clientHeight;	//==offsetWidth
+			  }
+			  if(min==clientHeight1){
+			  		var child2 = document.createElement('div');
+			      element1.appendChild(child2);
+			      child2.className="childElementStyle1";	   
+				  var clientHeight1 =element1.clientHeight;	//==offsetWidth
+			  }
+			  if(min==clientHeight2){
+			  		 var child1 = document.createElement('div');
+				      element2.appendChild(child1);
+				      child1.className="childElementStyle";	   
+					  var clientHeight2 =element2.clientHeight;	//==offsetWidth
+			  }
+		  }
+		
+		 alert(clientHeight );
+		 alert(clientHeight1);
+		 alert(clientHeight2);
+
+		</script>
+	</body>
